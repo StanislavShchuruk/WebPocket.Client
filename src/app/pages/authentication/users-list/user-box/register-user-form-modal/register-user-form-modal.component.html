@@ -1,0 +1,48 @@
+<form [formGroup]="registerUserForm" (ngSubmit)="onSubmit()">
+  <label>
+    <p class="label-txt" [class.label-active]="activeFieldName === 'email'">ENTER YOUR EMAIL</p>
+    <input type="email" class="input" (focus)="setActiveFieldName('email')" formControlName="email">
+    <div class="line-box">
+      <div class="line"></div>
+      <p class="validation-text text-danger">
+        <span *ngIf="isEmailReuiredError">Email required.</span>
+        <span *ngIf="isEmailIncorrect">Incorrect email.</span>
+      </p>
+    </div>
+  </label>
+
+  <label>
+    <p class="label-txt" [class.label-active]="activeFieldName === 'username'">ENTER USERNAME</p>
+    <input type="text" class="input" (focus)="setActiveFieldName('username')" formControlName="username">
+    <div class="line-box">
+      <div class="line"></div>
+      <p class="validation-text" [class.text-danger]="isUsernameInvalid">At least 5 letters.</p>
+    </div>
+  </label>
+
+  <label>
+    <p class="label-txt" [class.label-active]="activeFieldName === 'password'">ENTER PASSWORD</p>
+    <input type="password" class="input" (focus)="setActiveFieldName('password')" formControlName="password">
+    <div class="line-box">
+      <div class="line"></div>
+      <p class="validation-text" [class.text-danger]="isPasswordInvalid">At least 5 letters.</p>
+    </div>
+  </label>
+
+  <label>
+    <p class="label-txt" [class.label-active]="activeFieldName === 'confirmPassword'">CONFIRM PASSWORD</p>
+    <input type="password" class="input" (focus)="setActiveFieldName('confirmPassword')" formControlName="confirmPassword">
+    <div class="line-box">
+      <div class="line"></div>
+      <p *ngIf="isPasswordsMismatch" class="validation-text text-danger">Passwords mismatch.</p>
+    </div>
+  </label>
+  
+  <button type="submit">Register</button>
+
+  <div class="mt-3" *ngIf="errors && errors.length > 0">
+    <ul>
+      <li class="text-danger text-left" *ngFor="let error of errors"><small>{{error}}</small></li>
+    </ul>
+  </div>
+</form>

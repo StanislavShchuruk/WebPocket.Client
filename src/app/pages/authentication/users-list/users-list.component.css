@@ -1,0 +1,13 @@
+.users-list {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 348px;
+  border-right: 2px solid #0099e6;
+  border-left: 2px solid #0099e6;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 7.5px;
+  padding-right: 7.5px;
+  overflow: auto;
+}

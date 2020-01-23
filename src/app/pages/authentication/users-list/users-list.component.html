@@ -1,0 +1,14 @@
+<div class="flex mt-3">
+  <div class="users-list">
+    <ng-container *ngFor="let user of users">
+        <app-user-box class="w-100 my-1" [user]="user"></app-user-box>
+    </ng-container>
+    <app-user-box class="w-100 my-1" [user]="{ username: 'Create new user'}" [isNewUser]="true"></app-user-box>
+  </div>
+
+  <div class="mt-3" *ngIf="errors && errors.length > 0">
+    <ul>
+      <li class="text-danger text-left" *ngFor="let error of errors"><small>{{error}}</small></li>
+    </ul>
+  </div>
+</div>
