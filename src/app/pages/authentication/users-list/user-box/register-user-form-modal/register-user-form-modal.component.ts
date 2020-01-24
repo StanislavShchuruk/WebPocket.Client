@@ -5,6 +5,7 @@ import { RegisterUser } from '../../../../../shared/models/registerUser';
 import { misMatchValidator } from 'src/app/shared/helpers/validators/form/mis-match-validator';
 import { ErrorRequestResult } from 'src/app/shared/models/error-request-result';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
+import { BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'auth-register-user-form-modal',
@@ -17,7 +18,7 @@ export class RegisterUserFormModalComponent implements OnInit {
   public registerUserForm: FormGroup;
   public errors = [];
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private bsModalRef: BsModalRef, private authService: AuthenticationService) { }
 
   public get isEmailIncorrect(): boolean {
     const emailControl = this.registerUserForm.get('email');

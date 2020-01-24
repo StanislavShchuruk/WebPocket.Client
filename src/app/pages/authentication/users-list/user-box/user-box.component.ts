@@ -3,6 +3,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { RegisterUserFormModalComponent } from './register-user-form-modal/register-user-form-modal.component';
 import { LoginUserFormModalComponent } from './login-user-form-modal/login-user-form-modal.component';
 import { User } from 'src/app/shared/models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-box',
@@ -20,7 +21,9 @@ export class UserBoxComponent implements OnInit {
 
   private bsModalRef: BsModalRef;
 
-  constructor(private modalService: BsModalService) { }
+  constructor(
+    private router: Router,
+    private modalService: BsModalService) { }
 
   public ngOnInit() {
     if (this.isNewUser) {
@@ -36,6 +39,11 @@ export class UserBoxComponent implements OnInit {
     } else {
       this.openLoginUserForm();
     }
+    this.bsModalRef.content.onClose.subscribe(result => {
+      if (result === true) {
+        this.router.navigate(['/home']);
+      }
+  });
   }
 
   private openRegisterUserForm() {
