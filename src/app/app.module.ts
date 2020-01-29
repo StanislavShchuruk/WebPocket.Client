@@ -16,11 +16,11 @@ import { httpInterceptorProviders } from './shared/helpers/http-interceptors/htt
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    AuthenticationModule,
-    SharedModule
+    AuthenticationModule
   ],
   providers: [
     httpInterceptorProviders

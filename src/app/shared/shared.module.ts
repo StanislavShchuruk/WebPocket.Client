@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { ModalModule } from 'ngx-bootstrap';
-import { AuthenticationService } from './services/authentication.service';
 
 
 @NgModule({
@@ -16,7 +15,6 @@ import { AuthenticationService } from './services/authentication.service';
     ModalModule.forRoot()
   ],
   providers: [
-    AuthenticationService
   ],
   exports: [
     ReactiveFormsModule,

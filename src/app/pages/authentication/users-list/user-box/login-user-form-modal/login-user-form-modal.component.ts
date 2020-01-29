@@ -34,7 +34,6 @@ export class LoginUserFormModalComponent implements OnInit {
 
   public onSubmit() {
     if (this.loginUserForm.invalid) {
-      console.log(this.loginUserForm);
       return;
     }
 

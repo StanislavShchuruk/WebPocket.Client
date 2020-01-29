@@ -6,6 +6,7 @@ import { misMatchValidator } from 'src/app/shared/helpers/validators/form/mis-ma
 import { ErrorRequestResult } from 'src/app/shared/models/error-request-result';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { BsModalRef } from 'ngx-bootstrap';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'auth-register-user-form-modal',
@@ -17,6 +18,7 @@ export class RegisterUserFormModalComponent implements OnInit {
   public activeFieldName = '';
   public registerUserForm: FormGroup;
   public errors = [];
+  public onClose: Subject<boolean>;
 
   constructor(private bsModalRef: BsModalRef, private authService: AuthenticationService) { }
 
@@ -46,6 +48,8 @@ export class RegisterUserFormModalComponent implements OnInit {
   }
 
   public ngOnInit() {
+    this.onClose = new Subject();
+
     this.registerUserForm = new FormGroup({
       email: new FormControl('stanis@email.com', [Validators.required, Validators.email]),
       username: new FormControl('stanis', [Validators.required, Validators.minLength(3)]),
@@ -67,7 +71,7 @@ export class RegisterUserFormModalComponent implements OnInit {
     };
 
     this.authService.registerUser(registerUserData).subscribe((data) => {
-      console.log(data);
+      this.close(true);
     }, (err: ErrorRequestResult) => {
       this.errors = err.errors;
     });
@@ -77,4 +81,8 @@ export class RegisterUserFormModalComponent implements OnInit {
     this.activeFieldName = fieldName;
   }
 
+  public close(result: boolean) {
+    this.onClose.next(result);
+    this.bsModalRef.hide();
+  }
 }
