@@ -1,0 +1,14 @@
+<div class="flex mt-3">
+  <div class="pockets-list">
+    <ng-container *ngFor="let pocket of pockets">
+        
+    </ng-container>
+    <button class="btn btn-primary">+ Create new pocket</button>
+  </div>
+
+  <div class="mt-3" *ngIf="errors && errors.length > 0">
+    <ul>
+      <li class="text-danger text-left" *ngFor="let error of errors"><small>{{error}}</small></li>
+    </ul>
+  </div>
+</div>

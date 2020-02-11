@@ -8,7 +8,7 @@ import { BsModalRef } from 'ngx-bootstrap';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'auth-login-user-form-modal',
+  selector: 'app-auth-login-user-form-modal',
   templateUrl: './login-user-form-modal.component.html',
   styleUrls: ['./login-user-form-modal.component.css']
 })

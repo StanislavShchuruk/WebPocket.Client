@@ -19,8 +19,7 @@
       true,
       "element",
       "app",
-      "kebab-case",
-      "auth"
+      "kebab-case"
     ],
     "import-blacklist": [
       true,

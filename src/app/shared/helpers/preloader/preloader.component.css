@@ -1,0 +1,32 @@
+/* @import "compass/css3"; */
+div {
+  width: 15px;
+  height: 15px;
+  position: relative;
+  display: inline-flex;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+
+div:nth-child(1) {
+  background-color: #FF5460;
+  animation: move 1.5s 150ms infinite cubic-bezier(.2,.64,.81,.23);
+}
+div:nth-child(2) {
+  background-color: #FF9D84;
+  animation: move 1.5s 100ms infinite cubic-bezier(.2,.64,.81,.23);
+}
+div:nth-child(3) {
+  background-color: #F0E797;
+  animation: move 1.5s 50ms infinite cubic-bezier(.2,.64,.81,.23);
+}
+div:nth-child(4) {
+  background-color: #75B08A;
+  animation: move 1.5s 0ms infinite cubic-bezier(.2,.64,.81,.23);
+}
+
+
+@keyframes move {
+  0% {left: 0%;}
+  100% {left:100%;}
+}

@@ -4,13 +4,14 @@ import { UserListService } from './shared/user-list.service';
 import { ErrorRequestResult } from 'src/app/shared/models/error-request-result';
 
 @Component({
-  selector: 'app-users-list',
-  templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.css']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css']
 })
-export class UsersListComponent implements OnInit {
+export class UserListComponent implements OnInit {
 
   public users = [];
+  public loading = false;
   private errors = [];
 
   constructor(private userListService: UserListService) { }
@@ -20,9 +21,12 @@ export class UsersListComponent implements OnInit {
   }
 
   private getUsers() {
+    this.loading = true;
     this.userListService.GetUsers().subscribe((data: User[]) => {
+      this.loading = false;
       this.users = data;
     }, (err: ErrorRequestResult) => {
+      this.loading = false;
       this.errors = err.errors;
     });
   }

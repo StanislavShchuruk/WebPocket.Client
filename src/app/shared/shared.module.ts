@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { ModalModule } from 'ngx-bootstrap';
+import { PreloaderComponent } from './helpers/preloader/preloader.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [PreloaderComponent],
   imports: [
     ReactiveFormsModule,
     CommonModule,
@@ -20,7 +21,8 @@ import { ModalModule } from 'ngx-bootstrap';
     ReactiveFormsModule,
     FontAwesomeModule,
     ModalModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PreloaderComponent
   ]
 })
 export class SharedModule {

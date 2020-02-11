@@ -9,7 +9,7 @@ import { BsModalRef } from 'ngx-bootstrap';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'auth-register-user-form-modal',
+  selector: 'app-auth-register-user-form-modal',
   templateUrl: './register-user-form-modal.component.html',
   styleUrls: ['./register-user-form-modal.component.css']
 })
