@@ -12,6 +12,7 @@ export class UserListComponent implements OnInit {
 
   public users = [];
   public loading = false;
+  public bgColoros = ['#6C9575', '#83B799', '#E2CD6D', '#C2B28F', '#E4D8B4', '#E86F68'];
   private errors = [];
 
   constructor(private userListService: UserListService) { }

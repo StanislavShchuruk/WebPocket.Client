@@ -1,10 +1,11 @@
 <div class="flex mt-3">
   <div class="users-list">
-    <app-user-box class="w-100 my-1" [user]="{ username: 'Create new user'}" [isNewUser]="true"></app-user-box>
-    <ng-container *ngFor="let user of users">
-        <app-user-box class="w-100 my-1" [user]="user"></app-user-box>
+    <app-user-box class="w-100 my-1" [ngStyle]="{'background-color': bgColoros[0]}" [user]="{ username: 'Sign In'}" [isNewUser]="true"></app-user-box>
+
+    <ng-container *ngFor="let user of users; let i = index">
+      <app-user-box class="w-100 my-1" [ngStyle]="{'background-color': bgColoros[(i + 1) % 6]}" [user]="user"></app-user-box>
     </ng-container>
-    <div class="flex"></div>
+
     <app-preloader class="my-auto" *ngIf="loading"></app-preloader>
   </div>
 
