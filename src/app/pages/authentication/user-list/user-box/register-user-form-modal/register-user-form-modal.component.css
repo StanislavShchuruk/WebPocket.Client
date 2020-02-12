@@ -46,7 +46,7 @@ label {
   top: 0px;
   left: 50%;
   transform: translateX(-50%);
-  background: #0099e6;
+  background: #6C9575;
   transition: ease .6s;
 }
 
@@ -78,6 +78,6 @@ button {
 }
 
 button:hover {
-  background: #0099e6;
+  background: #6C9575;
   color: #ffffff;
 }
