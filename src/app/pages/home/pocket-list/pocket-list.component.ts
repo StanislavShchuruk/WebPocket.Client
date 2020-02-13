@@ -14,6 +14,12 @@ export class PocketListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    for (let i = 0; i < 25; i++) {
+      this.pockets.push({
+        id: 0,
+        name: 'Pocket 1'
+      });
+    }
   }
 
 }

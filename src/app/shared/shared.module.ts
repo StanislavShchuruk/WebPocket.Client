@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faUserPlus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ModalModule } from 'ngx-bootstrap';
 import { PreloaderComponent } from './helpers/preloader/preloader.component';
 
@@ -27,6 +27,6 @@ import { PreloaderComponent } from './helpers/preloader/preloader.component';
 })
 export class SharedModule {
   constructor(faIconLibrary: FaIconLibrary) {
-    faIconLibrary.addIcons(faUser, faUserPlus);
+    faIconLibrary.addIcons(faUser, faUserPlus, faPlus);
   }
  }
