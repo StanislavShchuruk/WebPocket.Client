@@ -14,12 +14,28 @@ export class PocketListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    for (let i = 0; i < 25; i++) {
-      this.pockets.push({
-        id: 0,
-        name: 'Pocket 1'
-      });
-    }
+    this.onAddNewPocket();
   }
 
+  public onAddNewPocket() {
+    const pocket = this.createNewPocket();
+    this.pockets.push(pocket);
+  }
+
+  private createNewPocket(): Pocket {
+    return {
+      id: 0,
+      name: this.generatePocketName()
+    };
+  }
+
+  private generatePocketName(): string {
+    let name = '';
+    let i = 0;
+    do {
+      name = `Pocket ${++i}`;
+    } while (this.pockets.some(p => p.name === name) && i < 1000000);
+
+    return name;
+  }
 }

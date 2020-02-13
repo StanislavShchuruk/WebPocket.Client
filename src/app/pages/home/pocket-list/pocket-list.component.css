@@ -1,5 +1,8 @@
 .btn-add-pocket {
+  display: flex;
+  align-items: center;
   color: #568DAC;
+  cursor: pointer;
 }
 
 .pocket-item {
