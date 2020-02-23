@@ -26,15 +26,17 @@ export class AuthenticationService {
 
   public registerUser(data: RegisterUser) {
     return this.http.post<User>(`${this.apiUrl}/register`, data)
-      .pipe(map(user => {
-        this.saveUserToStorage(user);
-        return user;
+      .pipe(
+        map(user => {
+          this.saveUserToStorage(user);
+          return user;
       }));
   }
 
   public login(data: LoginUser) {
     return this.http.post<User>(`${this.apiUrl}/login`, data)
-      .pipe(map(user => {
+      .pipe(
+        map(user => {
           this.saveUserToStorage(user);
           return user;
       }));
